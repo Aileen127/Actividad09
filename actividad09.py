@@ -11,16 +11,37 @@ while True:
 
     # Inicio de match case
     match option:
-        case "1":
+        case "1": # Agregar
             movie = []
-            how_much_movies = int(input("Ingresa el número de cuantas películas deseas agregar, ingresa 0 si no quieres agregar más: "))
+
             while True:
+                how_much_movies = int(input("Ingresa el número de cuantas películas deseas agregar: "))
                 if how_much_movies > 0:
-                    for how_much in how_much_movies:
+                    for how_much in range(how_much_movies):
                         new_movie = input("Ingresa la película por - Título (texto) / Año de estreno (número) / Género (texto, como por ejemplo: acción, drama, comedia, etc.): ")
                         movie.append(new_movie)
-
-                    print("Se ha agregaddo la película correctamente")
+                        movies.append(movie) # Appendd lista principal
+                    print("Se ha agregado la película correctamente")
                     break
                 else:
-                    print("")
+                    print("Dato inválido, intenta de nuevo")
+         #Mostrar peliculas
+        case "2": #Mostrar peliculas
+            print(f"Listado de películas actual: {movies}")
+        case "3": # Buscar
+            search = input("Ingresa el título de la película que deseas buscar: ").lower()
+            if search in movie:
+                print(f"La pelicula {search}, se encuentra agregada.")
+            else:
+                print("La película no se encuentra registrada.")
+        case "4":
+            print(f"Listado de películas actual: {movies}")
+            delete = input("Ingresa el título de la película que deseas eliminar: ").lower()
+            if delete in movie:
+                movie.remove(delete)
+                print("La película ha sido eliminada")
+            else:
+                print("La película no se encuentra en el listado")
+        case "5":
+            print("Ha salido del programa")
+            break
