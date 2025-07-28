@@ -45,3 +45,5 @@ while True:
         case "5":
             print("Ha salido del programa")
             break
+        case _:
+            print("Opción inválida, intente de nuevo")
